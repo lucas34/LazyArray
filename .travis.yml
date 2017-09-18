@@ -6,7 +6,7 @@ before_install:
 
 script:
     - swiftlint
-    - set -o pipefail && xcodebuild test -enableCodeCoverage YES -project LazySwift.xcodeproj -scheme LazySwift -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6S,OS=10.3.1'
+    - set -o pipefail && xcodebuild test -enableCodeCoverage YES -project LazyArray.xcodeproj -scheme LazyArray -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6S,OS=10.3.1'
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
