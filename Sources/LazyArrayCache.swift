@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal class LazyArrayCache<Element>: LazyArray<Element> {
+private final class LazyArrayCache<Element>: LazyArray<Element> {
 
     private let actual: LazyArray<Element>
     private var cache = [Int: Element]()
@@ -18,20 +18,25 @@ internal class LazyArrayCache<Element>: LazyArray<Element> {
     }
 
     public override var count: Int {
-        get {
-            return actual.count
-        }
+        return actual.count
     }
 
     public override subscript(index: Int) -> Element {
-        get {
-            if let cached = cache[index] {
-                return cached
-            } else {
-                let item = actual[index]
-                cache[index] = item
-                return item
-            }
+        if let cached = cache[index] {
+            return cached
+        } else {
+            let item = actual[index]
+            cache[index] = item
+            return item
         }
     }
+
+}
+
+extension LazyArray {
+
+    public final func cache() -> LazyArray<Element> {
+        return LazyArrayCache(data: self)
+    }
+
 }

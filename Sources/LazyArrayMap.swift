@@ -8,7 +8,8 @@
 
 import Foundation
 
-internal final class LazyArrayMap<Element, Transformed>: LazyArray<Transformed> {
+private final class LazyArrayMap<Element, Transformed>: LazyArray<Transformed> {
+
     private let actual: LazyArray<Element>
     private let transformation: (Element) -> Transformed
 
@@ -18,14 +19,19 @@ internal final class LazyArrayMap<Element, Transformed>: LazyArray<Transformed> 
     }
 
     public override var count: Int {
-        get {
-            return actual.count
-        }
+        return actual.count
     }
 
     public override subscript(index: Int) -> Transformed {
-        get {
-            return transformation(actual[index])
-        }
+        return transformation(actual[index])
     }
+
+}
+
+extension LazyArray {
+
+    public final func lazyMap<T>(_ transform: @escaping (Element) -> T) -> LazyArray<T> {
+        return LazyArrayMap(data: self, map: transform)
+    }
+
 }

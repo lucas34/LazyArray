@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal final class LazyArrayWithFixSize<Element>: LazyArray<Element> {
+private final class LazyArrayWithFixSize<Element>: LazyArray<Element> {
 
     private let actual: LazyArray<Element>
     private let actualinterval: Range<Int>
@@ -19,18 +19,22 @@ internal final class LazyArrayWithFixSize<Element>: LazyArray<Element> {
     }
 
     public override var count: Int {
-        get {
-            return actualinterval.upperBound - actualinterval.lowerBound
-        }
+        return actualinterval.upperBound - actualinterval.lowerBound
     }
 
     public override subscript(index: Int) -> Element {
-        get {
-            if index > actualinterval.upperBound {
-                let empty: [Element] = []
-                return empty[index] // To simulate the index out of bound
-            }
-            return actual[actualinterval.lowerBound + index] // TODO check if index bellow count
+        if index > actualinterval.upperBound {
+            let empty: [Element] = []
+            return empty[index] // To simulate the index out of bound
         }
+        return actual[actualinterval.lowerBound + index]
     }
+}
+
+extension LazyArray {
+
+    public final subscript(subRange: Range<Int>) -> LazyArray<Element> {
+        return LazyArrayWithFixSize(data: self, interval: subRange)
+    }
+
 }

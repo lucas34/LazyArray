@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal final class AnyLazyArray<Element>: LazyArray<Any> {
+private final class AnyLazyArray<Element>: LazyArray<Any> {
 
     private let actual: LazyArray<Element>
 
@@ -17,14 +17,19 @@ internal final class AnyLazyArray<Element>: LazyArray<Any> {
     }
 
     public override var count: Int {
-        get {
-            return actual.count
-        }
+        return actual.count
     }
 
     public override subscript(index: Int) -> Any {
-        get {
-            return actual[index]
-        }
+        return actual[index]
     }
+
+}
+
+extension LazyArray {
+
+    public final func asAny() -> LazyArray<Any> {
+        return AnyLazyArray(data: self)
+    }
+
 }

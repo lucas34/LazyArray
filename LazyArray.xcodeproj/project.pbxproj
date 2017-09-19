@@ -13,7 +13,6 @@
 		B06BA20A1F6FA50600536567 /* LazyArrayWithFixSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06BA2031F6FA50600536567 /* LazyArrayWithFixSize.swift */; };
 		B06BA20B1F6FA50600536567 /* LazyArrayWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06BA2041F6FA50600536567 /* LazyArrayWrapper.swift */; };
 		B06BA20C1F6FA50600536567 /* LazyMutableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06BA2051F6FA50600536567 /* LazyMutableList.swift */; };
-		B06BA20D1F6FA50600536567 /* LazySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06BA2061F6FA50600536567 /* LazySwift.swift */; };
 		OBJ_20 /* LazyArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* LazyArray.swift */; };
 		OBJ_27 /* LazyArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* LazyArrayTests.swift */; };
 		OBJ_29 /* LazyArray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* LazyArray.framework */; };
@@ -36,7 +35,6 @@
 		B06BA2031F6FA50600536567 /* LazyArrayWithFixSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyArrayWithFixSize.swift; sourceTree = "<group>"; };
 		B06BA2041F6FA50600536567 /* LazyArrayWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyArrayWrapper.swift; sourceTree = "<group>"; };
 		B06BA2051F6FA50600536567 /* LazyMutableList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyMutableList.swift; sourceTree = "<group>"; };
-		B06BA2061F6FA50600536567 /* LazySwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazySwift.swift; sourceTree = "<group>"; };
 		OBJ_11 /* LazyArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyArrayTests.swift; sourceTree = "<group>"; };
 		OBJ_13 /* LazyArray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LazyArray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_14 /* LazyArrayTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = LazyArrayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +99,6 @@
 				B06BA2031F6FA50600536567 /* LazyArrayWithFixSize.swift */,
 				B06BA2041F6FA50600536567 /* LazyArrayWrapper.swift */,
 				B06BA2051F6FA50600536567 /* LazyMutableList.swift */,
-				B06BA2061F6FA50600536567 /* LazySwift.swift */,
 				OBJ_8 /* LazyArray.swift */,
 			);
 			path = Sources;
@@ -189,7 +186,6 @@
 				B06BA2091F6FA50600536567 /* LazyArrayMap.swift in Sources */,
 				OBJ_20 /* LazyArray.swift in Sources */,
 				B06BA20B1F6FA50600536567 /* LazyArrayWrapper.swift in Sources */,
-				B06BA20D1F6FA50600536567 /* LazySwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
