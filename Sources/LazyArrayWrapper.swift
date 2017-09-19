@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class LazyArrayWrapper<Element>: LazyArray<Element> {
+private class LazyArrayWrapper<Element>: LazyArray<Element> {
 
     private let actual: [Element]
 
@@ -17,15 +17,19 @@ public class LazyArrayWrapper<Element>: LazyArray<Element> {
     }
 
     public override var count: Int {
-        get {
-            return actual.count
-        }
+        return actual.count
     }
 
     public override subscript(index: Int) -> Element {
-        get {
-            return actual[index]
-        }
+        return actual[index]
+    }
+
+}
+
+extension Array {
+
+    public var lazyArray: LazyArray<Element> {
+        return LazyArrayWrapper(data: self)
     }
 
 }
