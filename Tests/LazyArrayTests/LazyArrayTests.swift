@@ -3,6 +3,12 @@ import XCTest
 
 class LazyArrayTests: XCTestCase {
 
+    public func testEmptyLazyArray() {
+        let empty: LazyArray<Int> = LazyArray<Int>.EMPTY()
+        XCTAssertTrue(empty.isEmpty())
+        XCTAssertFalse(empty.hasData())
+    }
+
     public func testLazyMutableList() {
         let list = LazyMutableList<Int>()
 
@@ -34,7 +40,7 @@ class LazyArrayTests: XCTestCase {
 
     public func testLazyCache() {
         var item = 1
-        var array = [item, 2].lazyArray.cache()
+        let array = [item, 2].lazyArray.cache()
 
         XCTAssertEqual(2, array.count)
         XCTAssertEqual(1, array[0])
@@ -44,6 +50,18 @@ class LazyArrayTests: XCTestCase {
         // No change
         // Coverage will also cover
         XCTAssertEqual(1, array[0])
+    }
+
+    public func testAnyLazyArray() {
+        let anyArray = [1, 2].lazyArray.asAny()
+        XCTAssertEqual(2, anyArray.count)
+        XCTAssertEqual(1, anyArray[0] as? Int)
+        XCTAssertEqual(2, anyArray[1] as? Int)
+    }
+
+    public func testToArray() {
+        XCTAssertEqual([1, 2, 3], [1, 2, 3].lazyArray.toArray())
+        XCTAssertEqual([1, 2], [1, 2, 3].lazyArray.toArray(max: 2))
     }
 
 }
