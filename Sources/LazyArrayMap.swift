@@ -30,7 +30,7 @@ private final class LazyArrayMap<Element, Transformed>: LazyArray<Transformed> {
 
 extension LazyArray {
 
-    public final func lazyMap<T>(_ transform: @escaping (Element) -> T) -> LazyArray<T> {
+    public final func map<T>(_ transform: @escaping (Element) -> T) -> LazyArray<T> {
         return LazyArrayMap(data: self, map: transform)
     }
 

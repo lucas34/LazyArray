@@ -31,7 +31,7 @@ class LazyArrayTests: XCTestCase {
     }
 
     public func testLazyMap() {
-        let array = [1, 2, 3].lazyArray.lazyMap { $0 * 2 }
+        let array = [1, 2, 3].lazyArray.map { $0 * 2 }
         XCTAssertEqual(3, array.count)
         XCTAssertEqual(2, array[0])
         XCTAssertEqual(4, array[1])
@@ -62,6 +62,37 @@ class LazyArrayTests: XCTestCase {
     public func testToArray() {
         XCTAssertEqual([1, 2, 3], [1, 2, 3].lazyArray.toArray())
         XCTAssertEqual([1, 2], [1, 2, 3].lazyArray.toArray(max: 2))
+    }
+
+    public func testSubArray() {
+        let base = [1, 2, 3]
+        XCTAssertEqual(Array(base[1..<2]), base.lazyArray[1..<2].toArray())
+    }
+
+    public func testExtension() {
+        XCTAssertEqual([1, 2].first, [1, 2].lazyArray.first)
+        XCTAssertNil([].lazyArray.first)
+
+        XCTAssertEqual([1, 2].last, [1, 2].lazyArray.last)
+        XCTAssertNil([].lazyArray.last)
+
+        // Drop first
+
+        XCTAssertEqual(Array([1, 2, 3].dropFirst()), [1, 2, 3].lazyArray.dropFirst().toArray())
+        XCTAssertEqual(Array([1, 2, 3].dropFirst(0)), [1, 2, 3].lazyArray.dropFirst(0).toArray())
+        XCTAssertEqual(Array([1, 2, 3].dropFirst(1)), [1, 2, 3].lazyArray.dropFirst(1).toArray())
+
+        // Drop Last
+
+        XCTAssertEqual(Array([1, 2, 3].dropLast()), [1, 2, 3].lazyArray.dropLast().toArray())
+        XCTAssertEqual(Array([1, 2, 3].dropLast(0)), [1, 2, 3].lazyArray.dropLast(0).toArray())
+        XCTAssertEqual(Array([1, 2, 3].dropLast(1)), [1, 2, 3].lazyArray.dropLast(1).toArray())
+
+        XCTAssertEqual(Array([1, 2, 3].prefix(0)), [1, 2, 3].lazyArray.prefix(0).toArray())
+        XCTAssertEqual(Array([1, 2, 3].prefix(1)), [1, 2, 3].lazyArray.prefix(1).toArray())
+
+        XCTAssertEqual(Array([1, 2, 3].suffix(0)), [1, 2, 3].lazyArray.suffix(0).toArray())
+        XCTAssertEqual(Array([1, 2, 3].suffix(1)), [1, 2, 3].lazyArray.suffix(1).toArray())
     }
 
 }
