@@ -31,7 +31,7 @@ public class LazyArray<Element> {
             return []
         } else {
             var result = [Element]()
-            for i in 0..<min(max, count) {
+            for i in 0..<Swift.min(max, count) {
                 result.append(self[i])
             }
             return result
@@ -57,38 +57,39 @@ public extension LazyArray {
         return isEmpty() ? nil : self[count - 1]
     }
 
-    func dropFirst() -> LazyArray<Element> {
+    public final func dropFirst() -> LazyArray<Element> {
         return self[1..<count]
     }
-    func dropFirst(_ n: Int) -> LazyArray<Element> {
+
+    public final func dropFirst(_ n: Int) -> LazyArray<Element> {
         guard n >= 0 else {
             fatalError("fatal error: Can't drop a negative number of elements from a collection")
         }
         return self[n...count]
     }
 
-    func dropLast() -> LazyArray<Element> {
-        return self[0..<max(0, (count - 1))]
+    public final func dropLast() -> LazyArray<Element> {
+        return self[0..<Swift.max(0, (count - 1))]
     }
 
-    func dropLast(_ n: Int) -> LazyArray<Element> {
+    public final func dropLast(_ n: Int) -> LazyArray<Element> {
         guard n >= 0 else {
             fatalError("fatal error: Can't drop a negative number of elements from a collection")
         }
-        return self[0..<max(0, (count - n))]
+        return self[0..<Swift.max(0, (count - n))]
     }
 
-    func prefix(_ maxLength: Int) -> LazyArray<Element> {
+    public final func prefix(_ maxLength: Int) -> LazyArray<Element> {
         guard maxLength >= 0 else {
             fatalError("fatal error: Can't take a prefix of negative length from a collection")
         }
         return self[0..<maxLength]
     }
 
-    func suffix(_ maxLength: Int) -> LazyArray<Element> {
+    public final func suffix(_ maxLength: Int) -> LazyArray<Element> {
         guard maxLength >= 0 else {
             fatalError("fatal error: Can't take a suffix of negative length from a collection")
         }
-        return self[min(count, max(0, count - maxLength))..<count]
+        return self[Swift.min(count, Swift.max(0, count - maxLength))..<count]
     }
 }

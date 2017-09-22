@@ -33,8 +33,8 @@ private final class LazyArrayWithFixSize<Element>: LazyArray<Element> {
 extension LazyArray {
 
     public final subscript(subRange: Range<Int>) -> LazyArray<Element> {
-        let lower = min(count, max(0, subRange.lowerBound))
-        let high = min(count, subRange.upperBound)
+        let lower = Swift.min(count, Swift.max(0, subRange.lowerBound))
+        let high = Swift.min(count, subRange.upperBound)
         guard high > 0 else {
             return LazyArray<Element>.EMPTY()
         }
@@ -42,8 +42,8 @@ extension LazyArray {
     }
 
     public final subscript(subRange: CountableClosedRange<Int>) -> LazyArray<Element> {
-        let lower = min(count, max(0, subRange.lowerBound))
-        let high = min(count, subRange.upperBound)
+        let lower = Swift.min(count, Swift.max(0, subRange.lowerBound))
+        let high = Swift.min(count, subRange.upperBound)
         return LazyArrayWithFixSize(data: self, interval: lower..<high)
     }
 
