@@ -3,12 +3,6 @@ import XCTest
 
 class LazyArrayTests: XCTestCase {
 
-    public func testEmptyLazyArray() {
-        let empty: LazyArray<Int> = LazyArray<Int>.EMPTY()
-        XCTAssertTrue(empty.isEmpty())
-        XCTAssertFalse(empty.hasData())
-    }
-
     public func testLazyMutableList() {
         let list = LazyMutableList<Int>()
 
@@ -59,19 +53,29 @@ class LazyArrayTests: XCTestCase {
         XCTAssertEqual(2, anyArray[1] as? Int)
     }
 
-    public func testToArray() {
-        XCTAssertEqual([1, 2, 3], [1, 2, 3].lazyArray.toArray())
-        XCTAssertEqual([1, 2], [1, 2, 3].lazyArray.toArray(max: 2))
-    }
-
     public func testSubArray() {
         let base = [1, 2, 3]
         XCTAssertEqual(Array(base[1..<2]), base.lazyArray[1..<2].toArray())
     }
 
-    public func testExtension() {
+    public func testLazyArrayBaseMethods() {
+
+        // Empty
+
+        XCTAssertEqual([1].isEmpty, [1].lazyArray.isEmpty)
+        XCTAssertEqual([].isEmpty, [].lazyArray.isEmpty)
+
+        // Has data
+
+        XCTAssertEqual(![1].isEmpty, [1].lazyArray.hasData)
+        XCTAssertEqual(![].isEmpty, [].lazyArray.hasData)
+
+        // First
+
         XCTAssertEqual([1, 2].first, [1, 2].lazyArray.first)
         XCTAssertNil([].lazyArray.first)
+
+        // Last
 
         XCTAssertEqual([1, 2].last, [1, 2].lazyArray.last)
         XCTAssertNil([].lazyArray.last)
@@ -88,11 +92,31 @@ class LazyArrayTests: XCTestCase {
         XCTAssertEqual(Array([1, 2, 3].dropLast(0)), [1, 2, 3].lazyArray.dropLast(0).toArray())
         XCTAssertEqual(Array([1, 2, 3].dropLast(1)), [1, 2, 3].lazyArray.dropLast(1).toArray())
 
+        // Prefix
+
         XCTAssertEqual(Array([1, 2, 3].prefix(0)), [1, 2, 3].lazyArray.prefix(0).toArray())
         XCTAssertEqual(Array([1, 2, 3].prefix(1)), [1, 2, 3].lazyArray.prefix(1).toArray())
 
+        // Suffix
+
         XCTAssertEqual(Array([1, 2, 3].suffix(0)), [1, 2, 3].lazyArray.suffix(0).toArray())
         XCTAssertEqual(Array([1, 2, 3].suffix(1)), [1, 2, 3].lazyArray.suffix(1).toArray())
+
+        // Reduce
+
+        XCTAssertEqual([1, 2, 3].lazyArray.reduce(0, +), [1, 2, 3].reduce(0, +))
+    }
+
+}
+
+extension LazyArray {
+
+    func toArray() -> [Element] {
+        var result = [Element]()
+        for i in 0..<count {
+            result.append(self[i])
+        }
+        return result
     }
 
 }

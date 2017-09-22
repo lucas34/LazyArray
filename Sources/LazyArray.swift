@@ -10,51 +10,35 @@ import Foundation
 
 public class LazyArray<Element> {
 
-    public static func EMPTY<E>() -> LazyArray<E> {
-        return LazyArray<E>()
-    }
-
-    public final func isEmpty() -> Bool {
-        return count < 1
-    }
-
-    public final func hasData() -> Bool {
-        return !isEmpty()
-    }
-
-    public final func toArray() -> [Element] {
-        return toArray(max: count)
-    }
-
-    public final func toArray(max: Int) -> [Element] {
-        if isEmpty() {
-            return []
-        } else {
-            var result = [Element]()
-            for i in 0..<Swift.min(max, count) {
-                result.append(self[i])
-            }
-            return result
-        }
-    }
-
     public var count: Int {
         return 0
     }
 
     public subscript(index: Int) -> Element {
-         fatalError("fatal error: Index out of range")
+        fatalError("fatal error: Index out of range")
     }
 }
 
 public extension LazyArray {
 
+    public static func EMPTY<E>() -> LazyArray<E> {
+        return LazyArray<E>()
+    }
+
+    public final var isEmpty: Bool {
+        return count < 1
+    }
+
+    public final var hasData: Bool {
+        return !isEmpty
+    }
+
     public final var first: Element? {
-        return isEmpty() ? nil : self[0]
+        return isEmpty ? nil : self[0]
     }
 
     public final var last: Element? {
-        return isEmpty() ? nil : self[count - 1]
+        return isEmpty ? nil : self[count - 1]
     }
 
     public final func dropFirst() -> LazyArray<Element> {
@@ -91,5 +75,13 @@ public extension LazyArray {
             fatalError("fatal error: Can't take a suffix of negative length from a collection")
         }
         return self[Swift.min(count, Swift.max(0, count - maxLength))..<count]
+    }
+
+    public final func reduce<Result>(_ accumulator: Result, _ next: (Result, Element) -> Result) -> Result {
+        var total = accumulator
+        for i in 0..<count {
+            total = next(total, self[i])
+        }
+        return total
     }
 }

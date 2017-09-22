@@ -8,7 +8,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codebeat badge](https://codebeat.co/badges/29c646b0-6cea-46c3-955a-6d12a07da64f)](https://codebeat.co/projects/github-com-lucas34-lazyarray-master)
 
-LazyArray is a standelon generic immutable list with O(1) only's methods.
+LazyArray is a standalone generic immutable list with O(1) only's methods.
 
 - [x] Map: In Swift.Array, map function has a O(n) complexity. In LazyArray, the map will be applied on demande. 
 - [x] Cache: Will cache result before returning. Great when you use the map operator
