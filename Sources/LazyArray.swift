@@ -48,7 +48,7 @@ public class LazyArray<Element> {
 }
 
 public extension LazyArray {
-    
+
     public final var first: Element? {
         return isEmpty() ? nil : self[0]
     }
