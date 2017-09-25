@@ -28,6 +28,9 @@ public extension LazyArray {
     }
 
     public final func dropFirst() -> LazyArray<Element> {
+        guard count > 0 else {
+            return LazyArray<Element>.EMPTY()
+        }
         return self[1..<count]
     }
 
@@ -35,7 +38,7 @@ public extension LazyArray {
         guard n >= 0 else {
             fatalError("Can't drop a negative number of elements from a collection")
         }
-        return self[n..<count]
+        return self[Swift.min(count, n)..<count]
     }
 
     public final func dropLast() -> LazyArray<Element> {
@@ -53,12 +56,15 @@ public extension LazyArray {
         guard maxLength >= 0 else {
             fatalError("Can't take a prefix of negative length from a collection")
         }
-        return self[0..<maxLength]
+        return self[0..<Swift.min(count, maxLength)]
     }
 
     public final func suffix(_ maxLength: Int) -> LazyArray<Element> {
         guard maxLength >= 0 else {
             fatalError("Can't take a suffix of negative length from a collection")
+        }
+        guard count - maxLength < count else {
+            return LazyArray<Element>.EMPTY()
         }
         return self[Swift.min(count, Swift.max(0, count - maxLength))..<count]
     }

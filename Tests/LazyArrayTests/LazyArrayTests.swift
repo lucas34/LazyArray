@@ -87,25 +87,35 @@ class LazyArrayTests: XCTestCase {
 
         // Drop first
 
+        let empty = [Int]()
+
         XCTAssertEqual(Array([1, 2, 3].dropFirst()), [1, 2, 3].lazyArray.dropFirst().toArray())
         XCTAssertEqual(Array([1, 2, 3].dropFirst(0)), [1, 2, 3].lazyArray.dropFirst(0).toArray())
         XCTAssertEqual(Array([1, 2, 3].dropFirst(1)), [1, 2, 3].lazyArray.dropFirst(1).toArray())
+        XCTAssertEqual(Array([1, 2, 3].dropFirst(9)), [1, 2, 3].lazyArray.dropFirst(9).toArray())
+        XCTAssertEqual(Array(empty.dropFirst()), empty.lazyArray.dropFirst().toArray())
 
         // Drop Last
 
         XCTAssertEqual(Array([1, 2, 3].dropLast()), [1, 2, 3].lazyArray.dropLast().toArray())
         XCTAssertEqual(Array([1, 2, 3].dropLast(0)), [1, 2, 3].lazyArray.dropLast(0).toArray())
         XCTAssertEqual(Array([1, 2, 3].dropLast(1)), [1, 2, 3].lazyArray.dropLast(1).toArray())
+        XCTAssertEqual(Array([1, 2, 3].dropLast(9)), [1, 2, 3].lazyArray.dropLast(9).toArray())
+        XCTAssertEqual(Array(empty.dropLast()), empty.lazyArray.dropLast().toArray())
 
         // Prefix
 
         XCTAssertEqual(Array([1, 2, 3].prefix(0)), [1, 2, 3].lazyArray.prefix(0).toArray())
         XCTAssertEqual(Array([1, 2, 3].prefix(1)), [1, 2, 3].lazyArray.prefix(1).toArray())
+        XCTAssertEqual(Array([1, 2, 3].prefix(9)), [1, 2, 3].lazyArray.prefix(9).toArray())
+        XCTAssertEqual(Array(empty.prefix(1)), empty.lazyArray.prefix(1).toArray())
 
         // Suffix
 
         XCTAssertEqual(Array([1, 2, 3].suffix(0)), [1, 2, 3].lazyArray.suffix(0).toArray())
         XCTAssertEqual(Array([1, 2, 3].suffix(1)), [1, 2, 3].lazyArray.suffix(1).toArray())
+        XCTAssertEqual(Array([1, 2, 3].suffix(9)), [1, 2, 3].lazyArray.suffix(9).toArray())
+        XCTAssertEqual(Array(empty.suffix(1)), empty.lazyArray.suffix(1).toArray())
     }
 
     // Experiemental

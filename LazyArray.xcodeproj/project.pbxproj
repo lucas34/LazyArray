@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E68E69ABD73D42388034433 /* LazyArray+CoutableRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E68ED23EBEA6C08EBC165A8 /* LazyArray+CoutableRange.swift */; };
 		B06BA20C1F6FA50600536567 /* LazyMutableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06BA2051F6FA50600536567 /* LazyMutableList.swift */; };
 		D0B7C030A08240092B4B31B7 /* LazyArray+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CAEFAAE4DB98644E2443 /* LazyArray+Range.swift */; };
 		D0B7C1E31DA0DC7039FD278B /* LazyArray+Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CBB181525E07720ED8F1 /* LazyArray+Any.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E68ED23EBEA6C08EBC165A8 /* LazyArray+CoutableRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyArray+CoutableRange.swift"; sourceTree = "<group>"; };
 		B06BA2051F6FA50600536567 /* LazyMutableList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyMutableList.swift; sourceTree = "<group>"; };
 		D0B7C4B3C3152238DF8C13A4 /* LazyArray+Linear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyArray+Linear.swift"; sourceTree = "<group>"; };
 		D0B7C7E596EA2C0DE334F3F1 /* LazyArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyArray+Sequence.swift"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				D0B7CAEFAAE4DB98644E2443 /* LazyArray+Range.swift */,
 				D0B7CDF0E18E37881B75BC8B /* LazyArray+Array.swift */,
 				D0B7C4B3C3152238DF8C13A4 /* LazyArray+Linear.swift */,
+				1E68ED23EBEA6C08EBC165A8 /* LazyArray+CoutableRange.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -194,6 +197,7 @@
 				D0B7C030A08240092B4B31B7 /* LazyArray+Range.swift in Sources */,
 				D0B7CC7EAF48F189799BE596 /* LazyArray+Array.swift in Sources */,
 				D0B7C6E64994B9FAFB3FB2E7 /* LazyArray+Linear.swift in Sources */,
+				1E68E69ABD73D42388034433 /* LazyArray+CoutableRange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

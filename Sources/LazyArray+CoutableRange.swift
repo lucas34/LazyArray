@@ -1,5 +1,5 @@
 //
-// Created by Lucas Nelaupe on 25/9/17.
+// Created by Lucas Nelaupe on 25/09/2017.
 //
 
 import Foundation
@@ -7,15 +7,15 @@ import Foundation
 private final class LazyArrayWithRange<Element>: LazyArray<Element> {
 
     private let actual: LazyArray<Element>
-    private let actualInterval: Range<Int>
+    private let actualInterval: CountableClosedRange<Int>
 
-    public init(data: LazyArray<Element>, range: Range<Int>) {
+    public init(data: LazyArray<Element>, range: CountableClosedRange<Int>) {
         self.actual = data
         self.actualInterval = range
     }
 
     public override var count: Int {
-        return actualInterval.lowerBound.distance(to: actualInterval.upperBound)
+        return actualInterval.lowerBound.distance(to: actualInterval.upperBound) + 1
     }
 
     public override subscript(index: Int) -> Element {
@@ -28,12 +28,12 @@ private final class LazyArrayWithRange<Element>: LazyArray<Element> {
 
 extension LazyArray {
 
-    public final subscript(subRange: Range<Int>) -> LazyArray<Element> {
+    public final subscript(subRange: CountableClosedRange<Int>) -> LazyArray<Element> {
         guard subRange.lowerBound >= 0 else {
             fatalError("Negative Array index is out of range")
         }
 
-        guard subRange.lowerBound <= count && subRange.upperBound <= count else {
+        guard subRange.lowerBound <= count && subRange.upperBound < count else {
             fatalError("Array index is out of range")
         }
 
