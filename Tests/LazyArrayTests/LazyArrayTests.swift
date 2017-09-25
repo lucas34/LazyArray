@@ -58,10 +58,21 @@ class LazyArrayTests: XCTestCase {
 
     public func testLazyArrayRange() {
         let array = [1, 2, 3]
+
         XCTAssertEqual(Array(array[0..<0]), array.lazyArray[0..<0].toArray())
+        XCTAssertEqual(Array(array[0..<1]), array.lazyArray[0..<1].toArray())
+        XCTAssertEqual(Array(array[0..<2]), array.lazyArray[0..<2].toArray())
+        XCTAssertEqual(Array(array[1..<1]), array.lazyArray[1..<1].toArray())
         XCTAssertEqual(Array(array[1..<2]), array.lazyArray[1..<2].toArray())
-        XCTAssertEqual(Array(array[1...2]), array.lazyArray[1...2].toArray())
+
+        XCTAssertEqual(Array(array[0...0]), array.lazyArray[0...0].toArray())
+        XCTAssertEqual(Array(array[0...1]), array.lazyArray[0...1].toArray())
         XCTAssertEqual(Array(array[0...2]), array.lazyArray[0...2].toArray())
+        XCTAssertEqual(Array(array[1...1]), array.lazyArray[1...1].toArray())
+        XCTAssertEqual(Array(array[1...2]), array.lazyArray[1...2].toArray())
+
+        let empty = [Int]()
+        XCTAssertEqual(Array(empty[0..<0]), empty.lazyArray[0..<0].toArray())
     }
 
     public func testLazyArraySequence() {
