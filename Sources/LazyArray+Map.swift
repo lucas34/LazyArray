@@ -1,9 +1,5 @@
 //
-//  LazyArrayMap.swift
-//  LazySwift
-//
-//  Created by Lucas Nelaupe on 18/9/17.
-//
+// Created by Lucas Nelaupe on 25/9/17.
 //
 
 import Foundation

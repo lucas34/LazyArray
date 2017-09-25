@@ -1,14 +1,10 @@
 //
-//  LazyArrayWrapper.swift
-//  LazySwift
-//
-//  Created by Lucas Nelaupe on 18/9/17.
-//
+// Created by Lucas Nelaupe on 25/9/17.
 //
 
 import Foundation
 
-private class LazyArrayWrapper<Element>: LazyArray<Element> {
+private class LazyArrayWithArray<Element>: LazyArray<Element> {
 
     private let actual: [Element]
 
@@ -29,7 +25,7 @@ private class LazyArrayWrapper<Element>: LazyArray<Element> {
 extension Array {
 
     public var lazyArray: LazyArray<Element> {
-        return LazyArrayWrapper(data: self)
+        return LazyArrayWithArray(data: self)
     }
 
 }

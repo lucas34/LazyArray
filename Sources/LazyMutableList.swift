@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Experimental
 public final class LazyMutableList<Element> : LazyArray<Element> {
 
     private var actual = [LazyArray<Element>]()

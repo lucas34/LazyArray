@@ -3,36 +3,21 @@ import XCTest
 
 class LazyArrayTests: XCTestCase {
 
-    public func testLazyMutableList() {
-        let list = LazyMutableList<Int>()
-
-        list.append([0, 1, 2].lazyArray)
-        XCTAssertEqual(3, list.count)
-        XCTAssertEqual(0, list[0])
-        XCTAssertEqual(1, list[1])
-        XCTAssertEqual(2, list[2])
-
-        list.append([3].lazyArray)
-        XCTAssertEqual(4, list.count)
-        XCTAssertEqual(3, list[3])
-
-        list.append([].lazyArray)
-        XCTAssertEqual(4, list.count)
-
-        list.append([5].lazyArray)
-        XCTAssertEqual(5, list.count)
-        XCTAssertEqual(5, list[4])
+    public func testLazyArrayAny() {
+        let anyArray = [1, 2].lazyArray.asAny()
+        XCTAssertEqual(2, anyArray.count)
+        XCTAssertEqual(1, anyArray[0] as? Int)
+        XCTAssertEqual(2, anyArray[1] as? Int)
     }
 
-    public func testLazyMap() {
-        let array = [1, 2, 3].lazyArray.map { $0 * 2 }
-        XCTAssertEqual(3, array.count)
-        XCTAssertEqual(2, array[0])
-        XCTAssertEqual(4, array[1])
-        XCTAssertEqual(6, array[2])
+    public func testLazyArrayArray() {
+        let anyArray = [1, 2].lazyArray
+        XCTAssertEqual(2, anyArray.count)
+        XCTAssertEqual(1, anyArray[0])
+        XCTAssertEqual(2, anyArray[1])
     }
 
-    public func testLazyCache() {
+    public func testLazyArrayCache() {
         var item = 1
         let array = [item, 2].lazyArray.cache()
 
@@ -46,20 +31,40 @@ class LazyArrayTests: XCTestCase {
         XCTAssertEqual(1, array[0])
     }
 
-    public func testAnyLazyArray() {
-        let anyArray = [1, 2].lazyArray.asAny()
-        XCTAssertEqual(2, anyArray.count)
-        XCTAssertEqual(1, anyArray[0] as? Int)
-        XCTAssertEqual(2, anyArray[1] as? Int)
+    public func testLazyArrayLinear() {
+        let empty: [Int] = [Int]()
+
+        // To array
+
+        XCTAssertEqual(empty, empty.lazyArray.toArray())
+        XCTAssertEqual([1, 2], [1, 2].lazyArray.toArray())
+
+        // To set
+        XCTAssertEqual(Set(empty), empty.lazyArray.toSet())
+        XCTAssertEqual(Set([1, 2]), [1, 2].lazyArray.toSet())
+
+        // Reduce
+
+        XCTAssertEqual([1, 2, 3].lazyArray.reduce(0, +), [1, 2, 3].reduce(0, +))
     }
 
-    public func testSubArray() {
-        let base = [1, 2, 3]
-        XCTAssertEqual(Array(base[1..<2]), base.lazyArray[1..<2].toArray())
+    public func testLazyArrayMap() {
+        let array = [1, 2, 3].lazyArray.map { $0 * 2 }
+        XCTAssertEqual(3, array.count)
+        XCTAssertEqual(2, array[0])
+        XCTAssertEqual(4, array[1])
+        XCTAssertEqual(6, array[2])
     }
 
-    public func testLazyArrayBaseMethods() {
+    public func testLazyArrayRange() {
+        let array = [1, 2, 3]
+        XCTAssertEqual(Array(array[0..<0]), array.lazyArray[0..<0].toArray())
+        XCTAssertEqual(Array(array[1..<2]), array.lazyArray[1..<2].toArray())
+        XCTAssertEqual(Array(array[1...2]), array.lazyArray[1...2].toArray())
+        XCTAssertEqual(Array(array[0...2]), array.lazyArray[0...2].toArray())
+    }
 
+    public func testLazyArraySequence() {
         // Empty
 
         XCTAssertEqual([1].isEmpty, [1].lazyArray.isEmpty)
@@ -101,22 +106,28 @@ class LazyArrayTests: XCTestCase {
 
         XCTAssertEqual(Array([1, 2, 3].suffix(0)), [1, 2, 3].lazyArray.suffix(0).toArray())
         XCTAssertEqual(Array([1, 2, 3].suffix(1)), [1, 2, 3].lazyArray.suffix(1).toArray())
-
-        // Reduce
-
-        XCTAssertEqual([1, 2, 3].lazyArray.reduce(0, +), [1, 2, 3].reduce(0, +))
     }
 
-}
+    // Experiemental
+    public func testLazyMutableList() {
+        let list = LazyMutableList<Int>()
 
-extension LazyArray {
+        list.append([0, 1, 2].lazyArray)
+        XCTAssertEqual(3, list.count)
+        XCTAssertEqual(0, list[0])
+        XCTAssertEqual(1, list[1])
+        XCTAssertEqual(2, list[2])
 
-    func toArray() -> [Element] {
-        var result = [Element]()
-        for i in 0..<count {
-            result.append(self[i])
-        }
-        return result
+        list.append([3].lazyArray)
+        XCTAssertEqual(4, list.count)
+        XCTAssertEqual(3, list[3])
+
+        list.append([].lazyArray)
+        XCTAssertEqual(4, list.count)
+
+        list.append([5].lazyArray)
+        XCTAssertEqual(5, list.count)
+        XCTAssertEqual(5, list[4])
     }
 
 }

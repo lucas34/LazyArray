@@ -1,14 +1,10 @@
 //
-//  LazyArrayWithFixSize.swift
-//  LazySwift
-//
-//  Created by Lucas Nelaupe on 18/9/17.
-//
+// Created by Lucas Nelaupe on 25/9/17.
 //
 
 import Foundation
 
-private final class LazyArrayWithFixSize<Element>: LazyArray<Element> {
+private final class LazyArrayWithRange<Element>: LazyArray<Element> {
 
     private let actual: LazyArray<Element>
     private let actualInterval: Range<Int>
@@ -38,13 +34,13 @@ extension LazyArray {
         guard high > 0 else {
             return LazyArray<Element>.EMPTY()
         }
-        return LazyArrayWithFixSize(data: self, interval: lower..<high)
+        return LazyArrayWithRange(data: self, interval: lower..<high)
     }
 
     public final subscript(subRange: CountableClosedRange<Int>) -> LazyArray<Element> {
         let lower = Swift.min(count, Swift.max(0, subRange.lowerBound))
-        let high = Swift.min(count, subRange.upperBound)
-        return LazyArrayWithFixSize(data: self, interval: lower..<high)
+        let high = Swift.min(count, subRange.upperBound) + 1
+        return LazyArrayWithRange(data: self, interval: lower..<high)
     }
 
 }
