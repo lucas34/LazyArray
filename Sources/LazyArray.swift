@@ -17,6 +17,6 @@ open class LazyArray<Element> {
     }
 
     open subscript(index: Int) -> Element {
-        fatalError("fatal error: Index out of range")
+        fatalError("Index out of range")
     }
 }
