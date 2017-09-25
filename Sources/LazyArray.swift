@@ -8,13 +8,15 @@
 
 import Foundation
 
-public class LazyArray<Element> {
+open class LazyArray<Element> {
 
-    public var count: Int {
+    public init() {}
+
+    open var count: Int {
         return 0
     }
 
-    public subscript(index: Int) -> Element {
+    open subscript(index: Int) -> Element {
         fatalError("fatal error: Index out of range")
     }
 }

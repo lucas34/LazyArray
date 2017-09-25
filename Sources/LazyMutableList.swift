@@ -14,7 +14,7 @@ public final class LazyMutableList<Element> : LazyArray<Element> {
     private var actual = [LazyArray<Element>]()
     private var total = 0
 
-    func append(_ item: LazyArray<Element>) {
+    public func append(_ item: LazyArray<Element>) {
         actual.append(item)
         total += item.count
     }
