@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E68E69ABD73D42388034433 /* LazyArray+CoutableRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E68ED23EBEA6C08EBC165A8 /* LazyArray+CoutableRange.swift */; };
-		B06BA20C1F6FA50600536567 /* LazyMutableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06BA2051F6FA50600536567 /* LazyMutableList.swift */; };
-		D0B7C030A08240092B4B31B7 /* LazyArray+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CAEFAAE4DB98644E2443 /* LazyArray+Range.swift */; };
-		D0B7C1E31DA0DC7039FD278B /* LazyArray+Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CBB181525E07720ED8F1 /* LazyArray+Any.swift */; };
-		D0B7C382C5156CE34B88A937 /* LazyArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7C7E596EA2C0DE334F3F1 /* LazyArray+Sequence.swift */; };
-		D0B7C6E64994B9FAFB3FB2E7 /* LazyArray+Linear.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7C4B3C3152238DF8C13A4 /* LazyArray+Linear.swift */; };
-		D0B7CC222485E3BC6DC5E1F1 /* LazyArray+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CA72C09FE6B7A6670246 /* LazyArray+Map.swift */; };
-		D0B7CC7EAF48F189799BE596 /* LazyArray+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CDF0E18E37881B75BC8B /* LazyArray+Array.swift */; };
-		D0B7CDFA79FEE2400581BF79 /* LazyArray+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CF405B107E4BC8E12D9A /* LazyArray+Cache.swift */; };
-		OBJ_20 /* LazyArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* LazyArray.swift */; };
+		1D8479971F82A77C00B3BBFB /* LazyArray+Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D84798D1F82A77B00B3BBFB /* LazyArray+Any.swift */; };
+		1D8479981F82A77C00B3BBFB /* LazyArray+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D84798E1F82A77B00B3BBFB /* LazyArray+Array.swift */; };
+		1D8479991F82A77C00B3BBFB /* LazyArray+Linear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D84798F1F82A77B00B3BBFB /* LazyArray+Linear.swift */; };
+		1D84799A1F82A77C00B3BBFB /* LazyArray+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8479901F82A77B00B3BBFB /* LazyArray+Range.swift */; };
+		1D84799B1F82A77C00B3BBFB /* LazyMutableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8479911F82A77B00B3BBFB /* LazyMutableList.swift */; };
+		1D84799C1F82A77C00B3BBFB /* LazyArray+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8479921F82A77B00B3BBFB /* LazyArray+Cache.swift */; };
+		1D84799D1F82A77C00B3BBFB /* LazyArray+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8479931F82A77C00B3BBFB /* LazyArray+Map.swift */; };
+		1D84799E1F82A77C00B3BBFB /* LazyArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8479941F82A77C00B3BBFB /* LazyArray+Sequence.swift */; };
+		1D84799F1F82A77C00B3BBFB /* LazyArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8479951F82A77C00B3BBFB /* LazyArray.swift */; };
+		1D8479A01F82A77C00B3BBFB /* LazyArray+CoutableRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8479961F82A77C00B3BBFB /* LazyArray+CoutableRange.swift */; };
 		OBJ_27 /* LazyArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* LazyArrayTests.swift */; };
 		OBJ_29 /* LazyArray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* LazyArray.framework */; };
 /* End PBXBuildFile section */
@@ -32,20 +32,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E68ED23EBEA6C08EBC165A8 /* LazyArray+CoutableRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyArray+CoutableRange.swift"; sourceTree = "<group>"; };
-		B06BA2051F6FA50600536567 /* LazyMutableList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyMutableList.swift; sourceTree = "<group>"; };
-		D0B7C4B3C3152238DF8C13A4 /* LazyArray+Linear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyArray+Linear.swift"; sourceTree = "<group>"; };
-		D0B7C7E596EA2C0DE334F3F1 /* LazyArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyArray+Sequence.swift"; sourceTree = "<group>"; };
-		D0B7CA72C09FE6B7A6670246 /* LazyArray+Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyArray+Map.swift"; sourceTree = "<group>"; };
-		D0B7CAEFAAE4DB98644E2443 /* LazyArray+Range.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyArray+Range.swift"; sourceTree = "<group>"; };
-		D0B7CBB181525E07720ED8F1 /* LazyArray+Any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyArray+Any.swift"; sourceTree = "<group>"; };
-		D0B7CDF0E18E37881B75BC8B /* LazyArray+Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyArray+Array.swift"; sourceTree = "<group>"; };
-		D0B7CF405B107E4BC8E12D9A /* LazyArray+Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyArray+Cache.swift"; sourceTree = "<group>"; };
+		1D84798D1F82A77B00B3BBFB /* LazyArray+Any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LazyArray+Any.swift"; path = "LazyArray/LazyArray+Any.swift"; sourceTree = "<group>"; };
+		1D84798E1F82A77B00B3BBFB /* LazyArray+Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LazyArray+Array.swift"; path = "LazyArray/LazyArray+Array.swift"; sourceTree = "<group>"; };
+		1D84798F1F82A77B00B3BBFB /* LazyArray+Linear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LazyArray+Linear.swift"; path = "LazyArray/LazyArray+Linear.swift"; sourceTree = "<group>"; };
+		1D8479901F82A77B00B3BBFB /* LazyArray+Range.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LazyArray+Range.swift"; path = "LazyArray/LazyArray+Range.swift"; sourceTree = "<group>"; };
+		1D8479911F82A77B00B3BBFB /* LazyMutableList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LazyMutableList.swift; path = LazyArray/LazyMutableList.swift; sourceTree = "<group>"; };
+		1D8479921F82A77B00B3BBFB /* LazyArray+Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LazyArray+Cache.swift"; path = "LazyArray/LazyArray+Cache.swift"; sourceTree = "<group>"; };
+		1D8479931F82A77C00B3BBFB /* LazyArray+Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LazyArray+Map.swift"; path = "LazyArray/LazyArray+Map.swift"; sourceTree = "<group>"; };
+		1D8479941F82A77C00B3BBFB /* LazyArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LazyArray+Sequence.swift"; path = "LazyArray/LazyArray+Sequence.swift"; sourceTree = "<group>"; };
+		1D8479951F82A77C00B3BBFB /* LazyArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LazyArray.swift; path = LazyArray/LazyArray.swift; sourceTree = "<group>"; };
+		1D8479961F82A77C00B3BBFB /* LazyArray+CoutableRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LazyArray+CoutableRange.swift"; path = "LazyArray/LazyArray+CoutableRange.swift"; sourceTree = "<group>"; };
 		OBJ_11 /* LazyArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyArrayTests.swift; sourceTree = "<group>"; };
 		OBJ_13 /* LazyArray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LazyArray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_14 /* LazyArrayTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = LazyArrayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		OBJ_8 /* LazyArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -93,22 +93,21 @@
 				OBJ_9 /* Tests */,
 				OBJ_12 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B06BA2051F6FA50600536567 /* LazyMutableList.swift */,
-				OBJ_8 /* LazyArray.swift */,
-				D0B7C7E596EA2C0DE334F3F1 /* LazyArray+Sequence.swift */,
-				D0B7CF405B107E4BC8E12D9A /* LazyArray+Cache.swift */,
-				D0B7CA72C09FE6B7A6670246 /* LazyArray+Map.swift */,
-				D0B7CBB181525E07720ED8F1 /* LazyArray+Any.swift */,
-				D0B7CAEFAAE4DB98644E2443 /* LazyArray+Range.swift */,
-				D0B7CDF0E18E37881B75BC8B /* LazyArray+Array.swift */,
-				D0B7C4B3C3152238DF8C13A4 /* LazyArray+Linear.swift */,
-				1E68ED23EBEA6C08EBC165A8 /* LazyArray+CoutableRange.swift */,
+				1D8479951F82A77C00B3BBFB /* LazyArray.swift */,
+				1D84798D1F82A77B00B3BBFB /* LazyArray+Any.swift */,
+				1D84798E1F82A77B00B3BBFB /* LazyArray+Array.swift */,
+				1D8479921F82A77B00B3BBFB /* LazyArray+Cache.swift */,
+				1D8479961F82A77C00B3BBFB /* LazyArray+CoutableRange.swift */,
+				1D84798F1F82A77B00B3BBFB /* LazyArray+Linear.swift */,
+				1D8479931F82A77C00B3BBFB /* LazyArray+Map.swift */,
+				1D8479901F82A77B00B3BBFB /* LazyArray+Range.swift */,
+				1D8479941F82A77C00B3BBFB /* LazyArray+Sequence.swift */,
+				1D8479911F82A77B00B3BBFB /* LazyMutableList.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -172,7 +171,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_12 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -188,16 +187,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				B06BA20C1F6FA50600536567 /* LazyMutableList.swift in Sources */,
-				OBJ_20 /* LazyArray.swift in Sources */,
-				D0B7C382C5156CE34B88A937 /* LazyArray+Sequence.swift in Sources */,
-				D0B7CDFA79FEE2400581BF79 /* LazyArray+Cache.swift in Sources */,
-				D0B7CC222485E3BC6DC5E1F1 /* LazyArray+Map.swift in Sources */,
-				D0B7C1E31DA0DC7039FD278B /* LazyArray+Any.swift in Sources */,
-				D0B7C030A08240092B4B31B7 /* LazyArray+Range.swift in Sources */,
-				D0B7CC7EAF48F189799BE596 /* LazyArray+Array.swift in Sources */,
-				D0B7C6E64994B9FAFB3FB2E7 /* LazyArray+Linear.swift in Sources */,
-				1E68E69ABD73D42388034433 /* LazyArray+CoutableRange.swift in Sources */,
+				1D84799E1F82A77C00B3BBFB /* LazyArray+Sequence.swift in Sources */,
+				1D84799A1F82A77C00B3BBFB /* LazyArray+Range.swift in Sources */,
+				1D8479971F82A77C00B3BBFB /* LazyArray+Any.swift in Sources */,
+				1D84799D1F82A77C00B3BBFB /* LazyArray+Map.swift in Sources */,
+				1D8479A01F82A77C00B3BBFB /* LazyArray+CoutableRange.swift in Sources */,
+				1D84799B1F82A77C00B3BBFB /* LazyMutableList.swift in Sources */,
+				1D84799F1F82A77C00B3BBFB /* LazyArray.swift in Sources */,
+				1D8479981F82A77C00B3BBFB /* LazyArray+Array.swift in Sources */,
+				1D84799C1F82A77C00B3BBFB /* LazyArray+Cache.swift in Sources */,
+				1D8479991F82A77C00B3BBFB /* LazyArray+Linear.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
