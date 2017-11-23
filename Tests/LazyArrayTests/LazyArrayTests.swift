@@ -151,4 +151,15 @@ class LazyArrayTests: XCTestCase {
         XCTAssertEqual(5, list[4])
     }
 
+    public func testReverseArray() {
+        let empty: [Int] = [Int]()
+
+        XCTAssertEqual(1, [1, 2, 3].lazyArray.reversed()[2])
+        XCTAssertEqual(2, [1, 2, 3].lazyArray.reversed()[1])
+        XCTAssertEqual(3, [1, 2, 3].lazyArray.reversed()[0])
+
+        XCTAssertEqual([1, 2, 3].reversed(), [1, 2, 3].lazyArray.reversed().toArray())
+        XCTAssertEqual(empty.reversed(), empty.lazyArray.reversed().toArray())
+    }
+
 }
