@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "LazyArray"
-  s.version          = "1.0.0"
+  s.version          = "1.1.0"
   s.summary          = "LazyArray"
   s.description      = "O(1) array operations"
   s.homepage         = "https://github.com/lucas34/LazyArray"
