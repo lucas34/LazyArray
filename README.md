@@ -18,6 +18,10 @@ From Swift.Collection
 - [x] first, last
 - [x] dropFirst, dropLast
 
+### Note about memory impact
+
+Original array will be wrapped for each operation. Functions that are supposed to modify the LazyArray's size will not drops the elements from memory.
+
 ## Installation
 
 #### Carthage
