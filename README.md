@@ -17,6 +17,7 @@ From Swift.Collection
 - [x] Prefix, Suffix
 - [x] first, last
 - [x] dropFirst, dropLast
+- [x] reversed
 
 ### Note about memory impact
 
