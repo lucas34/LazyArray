@@ -4,12 +4,12 @@
 
 import Foundation
 
-private final class AnyLazyArray<Element>: LazyArray<Any> {
+private final class LazyArrayAny<Element>: LazyArray<Any> {
 
     private let actual: LazyArray<Element>
 
-    public init(data: LazyArray<Element>) {
-        self.actual = data
+    public init(actual: LazyArray<Element>) {
+        self.actual = actual
     }
 
     public override var count: Int {
@@ -25,7 +25,7 @@ private final class AnyLazyArray<Element>: LazyArray<Any> {
 extension LazyArray {
 
     public final func asAny() -> LazyArray<Any> {
-        return AnyLazyArray(data: self)
+        return LazyArrayAny(actual: self)
     }
 
 }

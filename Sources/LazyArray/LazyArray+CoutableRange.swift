@@ -9,8 +9,8 @@ private final class LazyArrayWithRange<Element>: LazyArray<Element> {
     private let actual: LazyArray<Element>
     private let actualInterval: CountableClosedRange<Int>
 
-    public init(data: LazyArray<Element>, range: CountableClosedRange<Int>) {
-        self.actual = data
+    public init(actual: LazyArray<Element>, range: CountableClosedRange<Int>) {
+        self.actual = actual
         self.actualInterval = range
     }
 
@@ -37,7 +37,7 @@ extension LazyArray {
             fatalError("Array index is out of range")
         }
 
-        return LazyArrayWithRange(data: self, range: subRange)
+        return LazyArrayWithRange(actual: self, range: subRange)
     }
 
 }

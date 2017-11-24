@@ -8,8 +8,8 @@ private final class LazyArrayReverse<Element>: LazyArray<Element> {
 
     private let actual: LazyArray<Element>
 
-    public init(data: LazyArray<Element>) {
-        self.actual = data
+    public init(actual: LazyArray<Element>) {
+        self.actual = actual
     }
 
     public override var count: Int {
@@ -25,7 +25,7 @@ private final class LazyArrayReverse<Element>: LazyArray<Element> {
 extension LazyArray {
 
     public final func reversed() -> LazyArray<Element> {
-        return LazyArrayReverse(data: self)
+        return LazyArrayReverse(actual: self)
     }
 
 }

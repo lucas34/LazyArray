@@ -9,8 +9,8 @@ private final class LazyArrayMap<Element, Transformed>: LazyArray<Transformed> {
     private let actual: LazyArray<Element>
     private let transformation: (Element) -> Transformed
 
-    public init(data: LazyArray<Element>, map: @escaping (Element) -> Transformed) {
-        self.actual = data
+    public init(actual: LazyArray<Element>, map: @escaping (Element) -> Transformed) {
+        self.actual = actual
         self.transformation = map
     }
 
@@ -27,7 +27,7 @@ private final class LazyArrayMap<Element, Transformed>: LazyArray<Transformed> {
 extension LazyArray {
 
     public final func map<T>(_ transform: @escaping (Element) -> T) -> LazyArray<T> {
-        return LazyArrayMap(data: self, map: transform)
+        return LazyArrayMap(actual: self, map: transform)
     }
 
 }

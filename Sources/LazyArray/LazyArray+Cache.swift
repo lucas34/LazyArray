@@ -9,8 +9,8 @@ private final class LazyArrayCache<Element>: LazyArray<Element> {
     private let actual: LazyArray<Element>
     private var cache = [Int: Element]()
 
-    public init(data: LazyArray<Element>) {
-        self.actual = data
+    public init(actual: LazyArray<Element>) {
+        self.actual = actual
     }
 
     public override var count: Int {
@@ -32,7 +32,7 @@ private final class LazyArrayCache<Element>: LazyArray<Element> {
 extension LazyArray {
 
     public final func cache() -> LazyArray<Element> {
-        return LazyArrayCache(data: self)
+        return LazyArrayCache(actual: self)
     }
 
 }
