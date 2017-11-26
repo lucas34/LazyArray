@@ -4,19 +4,21 @@
 
 import Foundation
 
-private class LazyArrayWithArray<Element>: LazyArray<Element> {
+public struct LazyArrayStructArray<Element>: LazyArrayStruct {
+
+    typealias LazyData = Element
 
     private let actual: [Element]
 
-    public init(data: [Element]) {
-        self.actual = data
+    public init(actual: [Element]) {
+        self.actual = actual
     }
 
-    public override var count: Int {
+    public var count: Int {
         return actual.count
     }
 
-    public override subscript(index: Int) -> Element {
+    public subscript(index: Int) -> Element {
         return actual[index]
     }
 
@@ -24,8 +26,8 @@ private class LazyArrayWithArray<Element>: LazyArray<Element> {
 
 extension Array {
 
-    public var lazyArray: LazyArray<Element> {
-        return LazyArrayWithArray(data: self)
+    public var lazyArray: LazyArrayStructArray<Element> {
+        return LazyArrayStructArray(actual: self)
     }
 
 }

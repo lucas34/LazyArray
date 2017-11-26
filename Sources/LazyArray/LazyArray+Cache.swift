@@ -4,35 +4,37 @@
 
 import Foundation
 
-private final class LazyArrayCache<Element>: LazyArray<Element> {
+public struct LazyArrayCache<Actual: LazyArrayStruct>: LazyArrayStruct {
 
-    private let actual: LazyArray<Element>
-    private var cache = [Int: Element]()
+    public typealias LazyElement = Actual.LazyElement
 
-    public init(data: LazyArray<Element>) {
-        self.actual = data
+    private let actual: Actual
+    private var cache = [Int: LazyElement]()
+
+    public init(actual: Actual) {
+        self.actual = actual
     }
 
-    public override var count: Int {
+    public var count: Int {
         return actual.count
     }
 
-    public override subscript(index: Int) -> Element {
+    public subscript(index: Int) -> LazyElement {
         if let cached = cache[index] {
             return cached
         } else {
             let item = actual[index]
-            cache[index] = item
+//            cache[index] = item
             return item
         }
     }
 
 }
 
-extension LazyArray {
+public extension LazyArrayStruct {
 
-    public final func cache() -> LazyArray<Element> {
-        return LazyArrayCache(data: self)
+    public func cache() -> LazyArrayCache<Self> {
+        return LazyArrayCache(actual: self)
     }
 
 }

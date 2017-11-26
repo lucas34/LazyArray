@@ -4,28 +4,30 @@
 
 import Foundation
 
-private final class LazyArrayReverse<Element>: LazyArray<Element> {
+public struct LazyArrayReversed<Actual: LazyArrayStruct>: LazyArrayStruct {
 
-    private let actual: LazyArray<Element>
+    public typealias LazyElement = Actual.LazyElement
 
-    public init(data: LazyArray<Element>) {
-        self.actual = data
+    private let actual: Actual
+
+    public init(actual: Actual) {
+        self.actual = actual
     }
 
-    public override var count: Int {
+    public var count: Int {
         return actual.count
     }
 
-    public override subscript(index: Int) -> Element {
+    public subscript(index: Int) -> LazyElement {
         return actual[count - 1 - index]
     }
 
 }
 
-extension LazyArray {
+public extension LazyArrayStruct {
 
-    public final func reversed() -> LazyArray<Element> {
-        return LazyArrayReverse(data: self)
+    public func reversed() -> LazyArrayReversed<Self> {
+        return LazyArrayReversed(actual: self)
     }
 
 }

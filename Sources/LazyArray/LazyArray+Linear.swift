@@ -5,22 +5,22 @@
 import Foundation
 
 // Linear operations to leave LazyWorld
-extension LazyArray {
+extension LazyArrayStruct {
 
-    internal func forEach(_ callback: (Element) -> Void) {
+    internal func forEach(_ callback: (LazyElement) -> Void) {
         for i in 0..<count {
             callback(self[i])
         }
     }
 
-    public final func toArray() -> [Element] {
-        var result = [Element]()
+    public func toArray() -> [LazyElement] {
+        var result = [LazyElement]()
         result.reserveCapacity(count)
         forEach { result.append($0) }
         return result
     }
 
-    public final func reduce<Result>(_ accumulator: Result, _ next: (Result, Element) -> Result) -> Result {
+    public func reduce<Result>(_ accumulator: Result, _ next: (Result, LazyElement) -> Result) -> Result {
         var total = accumulator
         for i in 0..<count {
             total = next(total, self[i])
@@ -30,10 +30,10 @@ extension LazyArray {
 
 }
 
-extension LazyArray where Element : Hashable {
+extension LazyArrayStruct where LazyElement : Hashable {
 
-    public final func toSet() -> Set<Element> {
-        var result = Set<Element>(minimumCapacity: count)
+    public func toSet() -> Set<LazyElement> {
+        var result = Set<LazyElement>(minimumCapacity: count)
         forEach { result.insert($0) }
         return result
     }

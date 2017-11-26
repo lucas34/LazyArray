@@ -5,67 +5,67 @@
 import Foundation
 
 // Methods inspired by Sequence protocol
-public extension LazyArray {
+public extension LazyArrayStruct {
 
-    public static func EMPTY<E>() -> LazyArray<E> {
-        return LazyArray<E>()
-    }
+//    public static func EMPTY() -> Self {
+//        return LazyArrayEmpty()
+//    }
 
-    public final var isEmpty: Bool {
+    public var isEmpty: Bool {
         return count < 1
     }
 
-    public final var hasData: Bool {
+    public var hasData: Bool {
         return !isEmpty
     }
 
-    public final var first: Element? {
+    public var first: LazyElement? {
         return isEmpty ? nil : self[0]
     }
 
-    public final var last: Element? {
+    public var last: LazyElement? {
         return isEmpty ? nil : self[count - 1]
     }
 
-    public final func dropFirst() -> LazyArray<Element> {
+    public func dropFirst() -> LazyArrayWithRange<Self> {
         guard count > 0 else {
-            return LazyArray<Element>.EMPTY()
+            fatalError("")
         }
         return self[1..<count]
     }
 
-    public final func dropFirst(_ n: Int) -> LazyArray<Element> {
+    public func dropFirst(_ n: Int) -> LazyArrayWithRange<Self> {
         guard n >= 0 else {
-            fatalError("Can't drop a negative number of elements from a collection")
+            fatalError("Can't drop a negative number of LazyElements from a collection")
         }
         return self[Swift.min(count, n)..<count]
     }
 
-    public final func dropLast() -> LazyArray<Element> {
+    public func dropLast() -> LazyArrayWithRange<Self> {
         return self[0..<Swift.max(0, (count - 1))]
     }
 
-    public final func dropLast(_ n: Int) -> LazyArray<Element> {
+    public func dropLast(_ n: Int) -> LazyArrayWithRange<Self> {
         guard n >= 0 else {
-            fatalError("Can't drop a negative number of elements from a collection")
+            fatalError("Can't drop a negative number of LazyElements from a collection")
         }
         return self[0..<Swift.max(0, (count - n))]
     }
 
-    public final func prefix(_ maxLength: Int) -> LazyArray<Element> {
+    public func prefix(_ maxLength: Int) -> LazyArrayWithRange<Self> {
         guard maxLength >= 0 else {
             fatalError("Can't take a prefix of negative length from a collection")
         }
         return self[0..<Swift.min(count, maxLength)]
     }
 
-    public final func suffix(_ maxLength: Int) -> LazyArray<Element> {
-        guard maxLength >= 0 else {
-            fatalError("Can't take a suffix of negative length from a collection")
-        }
-        guard count - maxLength < count else {
-            return LazyArray<Element>.EMPTY()
-        }
-        return self[Swift.min(count, Swift.max(0, count - maxLength))..<count]
-    }
+//    public func suffix(_ maxLength: Int) -> LazyArrayWithRange<Self> {
+//        guard maxLength >= 0 else {
+//            fatalError("Can't take a suffix of negative length from a collection")
+//        }
+//        guard count - maxLength < count else {
+//            return LazyArray<LazyElement>.EMPTY()
+//        }
+//        return self[Swift.min(count, Swift.max(0, count - maxLength))..<count]
+//    }
 }

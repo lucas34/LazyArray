@@ -4,21 +4,23 @@
 
 import Foundation
 
-private final class LazyArrayWithRange<Element>: LazyArray<Element> {
+public struct LazyArrayWithRange<Actual: LazyArrayStruct>: LazyArrayStruct {
 
-    private let actual: LazyArray<Element>
+    public typealias LazyElement = Actual.LazyElement
+
+    private let actual: Actual
     private let actualInterval: Range<Int>
 
-    public init(data: LazyArray<Element>, range: Range<Int>) {
-        self.actual = data
+    public init(actual: Actual, range: Range<Int>) {
+        self.actual = actual
         self.actualInterval = range
     }
 
-    public override var count: Int {
+    public var count: Int {
         return actualInterval.lowerBound.distance(to: actualInterval.upperBound)
     }
 
-    public override subscript(index: Int) -> Element {
+    public subscript(index: Int) -> LazyElement {
         if index < 0 || index > actualInterval.upperBound {
             fatalError("Index out of range")
         }
@@ -26,9 +28,9 @@ private final class LazyArrayWithRange<Element>: LazyArray<Element> {
     }
 }
 
-extension LazyArray {
+extension LazyArrayStruct {
 
-    public final subscript(subRange: Range<Int>) -> LazyArray<Element> {
+    public subscript(subRange: Range<Int>) -> LazyArrayWithRange<Self> {
         guard subRange.lowerBound >= 0 else {
             fatalError("Negative Array index is out of range")
         }
@@ -37,7 +39,7 @@ extension LazyArray {
             fatalError("Array index is out of range")
         }
 
-        return LazyArrayWithRange(data: self, range: subRange)
+        return LazyArrayWithRange(actual: self, range: subRange)
     }
 
 }

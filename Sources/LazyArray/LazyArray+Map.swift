@@ -4,30 +4,32 @@
 
 import Foundation
 
-private final class LazyArrayMap<Element, Transformed>: LazyArray<Transformed> {
+public struct LazyArrayMapStruct<Actual: LazyArrayStruct, Transformed>: LazyArrayStruct {
 
-    private let actual: LazyArray<Element>
-    private let transformation: (Element) -> Transformed
+    public typealias LazyElement = Transformed
 
-    public init(data: LazyArray<Element>, map: @escaping (Element) -> Transformed) {
-        self.actual = data
+    private let actual: Actual
+    private let transformation: (Actual.LazyElement) -> Transformed
+
+    public init(actual: Actual, map: @escaping (Actual.LazyElement) -> Transformed) {
+        self.actual = actual
         self.transformation = map
     }
 
-    public override var count: Int {
+    public var count: Int {
         return actual.count
     }
 
-    public override subscript(index: Int) -> Transformed {
+    public subscript(index: Int) -> Transformed {
         return transformation(actual[index])
     }
 
 }
 
-extension LazyArray {
+extension LazyArrayStruct {
 
-    public final func map<T>(_ transform: @escaping (Element) -> T) -> LazyArray<T> {
-        return LazyArrayMap(data: self, map: transform)
+    public func map<T>(_ transform: @escaping (LazyElement) -> T) -> LazyArrayMapStruct<Self, T> {
+        return LazyArrayMapStruct(actual: self, map: transform)
     }
 
 }
