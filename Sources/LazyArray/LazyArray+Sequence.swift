@@ -59,13 +59,13 @@ public extension LazyArrayStruct {
         return self[0..<Swift.min(count, maxLength)]
     }
 
-//    public func suffix(_ maxLength: Int) -> LazyArrayWithRange<Self> {
-//        guard maxLength >= 0 else {
-//            fatalError("Can't take a suffix of negative length from a collection")
-//        }
-//        guard count - maxLength < count else {
-//            return LazyArray<LazyElement>.EMPTY()
-//        }
-//        return self[Swift.min(count, Swift.max(0, count - maxLength))..<count]
-//    }
+    public func suffix(_ maxLength: Int) -> LazyArrayWithRange<Self> {
+        guard maxLength >= 0 else {
+            fatalError("Can't take a suffix of negative length from a collection")
+        }
+        guard count - maxLength < count else {
+            return self[0..<0]
+        }
+        return self[Swift.min(count, Swift.max(0, count - maxLength))..<count]
+    }
 }
